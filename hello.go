@@ -4,9 +4,11 @@ import (
 	"fmt"
 )
 
+var englishHelloPrefix = "Hello "
+
 // Hello returns "Hello World"
 func Hello(name string) string {
-	return "Hello " + name
+	return englishHelloPrefix + name
 }
 
 func main() {
