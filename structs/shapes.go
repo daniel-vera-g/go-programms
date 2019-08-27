@@ -4,6 +4,11 @@ import (
 	"math"
 )
 
+// Shape represents a shape with an area
+type Shape interface {
+	Area() float64
+}
+
 // Rectangle with width and length
 type Rectangle struct {
 	Width  float64
@@ -30,7 +35,16 @@ type Circle struct {
 // Area takes the radius of a circle
 // and returns it's area
 func (c Circle) Area() float64 {
-
 	return c.Radius * c.Radius * math.Pi
+}
 
+// Triangle with Base and Height
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+// Area calculates the Are of a Triangle
+func (t Triangle) Area() float64 {
+	return (t.Base * t.Height) * 0.5
 }
