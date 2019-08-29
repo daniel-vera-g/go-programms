@@ -26,3 +26,8 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
+
+// Withraw the requested amount from the Wallet
+func (w *Wallet) Withraw(amount Bitcoin) {
+	w.balance -= amount
+}
