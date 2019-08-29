@@ -18,4 +18,17 @@ func TestWallet(t *testing.T) {
 		}
 	})
 
+	t.Run("Withraw", func(t *testing.T) {
+
+		wallet := Wallet{balance: Bitcoin(20)}
+
+		wallet.Withraw(Bitcoin(10))
+
+		got := wallet.Balance()
+		want := Bitcoin(10)
+
+		if got != want {
+			t.Errorf("Got %s want %s", got, want)
+		}
+	})
 }
