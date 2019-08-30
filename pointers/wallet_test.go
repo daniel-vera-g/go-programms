@@ -36,6 +36,24 @@ func TestWallet(t *testing.T) {
 		assertError(t, err, ErrInsufficientFunds)
 
 	})
+
+	t.Run("Withraw with funds", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{startingBalance}
+		err := wallet.Withraw(Bitcoin(10))
+
+		assertBalance(t, wallet, Bitcoin(10))
+		assertNoError(t, err)
+
+	})
+}
+
+func assertNoError(t *testing.T, got error) {
+	t.Helper()
+
+	if got != nil {
+		t.Fatal("didn't get an error but wanted one")
+	}
 }
 
 func assertError(t *testing.T, got error, want error) {
